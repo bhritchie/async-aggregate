@@ -1,14 +1,18 @@
-# async-aggregator
+# async-aggregate
 
 This package allows you to wrap a function so that it can be called several times but execution will be delayed so as to aggregate arguments across calls into a single call. It's a bit like throttling or debouncing, except that you wind up with all of the arguments from each call (if that's what you want, anyway). So, for example, you could have a bunch of front end components that all have their own logic for determing "I need object x", but, within the specified delay, you can collect all those ids and get them from the server all at once.
 
-[![Build Status](https://travis-ci.org/bhritchie/async-aggregator.svg?branch=master)](https://travis-ci.org/bhritchie/async-aggregator) [![npm](https://img.shields.io/npm/dt/async-aggregator.svg)](https://www.npmjs.com/package/async-aggregator)
+[![Build Status](https://travis-ci.org/bhritchie/async-aggregate.svg?branch=master)](https://travis-ci.org/bhritchie/async-aggregate) [![npm](https://img.shields.io/npm/dt/async-aggregate.svg)](https://www.npmjs.com/package/async-aggregate)
+
+## Installation
+
+    npm install async-aggregate
 
 ## Examples
 
 ### Basic usage
 
-const aggregate = require('async-aggregator');
+const aggregate = require('async-aggregate');
 
 const logger = aggregate(console.log);
 
@@ -32,7 +36,7 @@ As can be seen here, by default the arguments from each call are gathered up int
 
 As seen in the previous example, by default the arguments from each call are gathered up into an array and pushed onto a collecting array for the group of calls as a whole. When the temout is up, the callback is invoked with the whole array. You will probably want to specify some kind of aggregation for these arguments. In that case provide your own reducing function as the second paramater. For example:
 
-    const aggregate = require('async-aggregator');
+    const aggregate = require('async-aggregate');
     const _ = require('lodash');
 
     const logger = collector(console.log, {reducer: _.flatten})
