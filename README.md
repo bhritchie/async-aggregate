@@ -58,7 +58,7 @@ You can specify a maximum number of calls, possibly in conjuction with a delay. 
 
 ### Custom resolver
 
-The wrapper function returns a promise which resolves to the result of invoking your callback with the aggregated set of arguments. In general, each set of aggregated calls gets its own promise, but as well as specifying a custom reducer, you can specify a custom resolver, so that each call can get back the specific data that it would have expected to get from the unwrapped function. Your resolver gets the array of arguments for that call, adn the results. For example, suppose that the first argument to your function is an id, like so:
+The wrapper function returns a promise which resolves to the result of invoking your callback with the aggregated set of arguments. In general, each set of aggregated calls gets its own promise, but as well as specifying a custom reducer, you can specify a custom resolver, so that each call can get back the specific data that it would have expected to get from the unwrapped function. Your resolver gets the array of arguments for that call, and the results. For example, suppose that the first argument to your function is an id, like so:
 
     loadItem(10);
 
@@ -141,4 +141,4 @@ Now you can call `aggregatedFetch` the way you would have called `fetch`, but wi
 
 ## License
 
-[ISC](./LICENSE.txt).
+[MIT](./LICENSE.txt).
